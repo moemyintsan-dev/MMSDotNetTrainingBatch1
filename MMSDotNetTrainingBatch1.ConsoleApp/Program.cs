@@ -1,130 +1,61 @@
-﻿
-string firstName = "Moe";
-string lastName = "San";
-string fullName = firstName + lastName;
-Console.WriteLine(" My name is " + fullName);
+﻿// --Product
+// Id
+// Code
+// Name
+// Price
+// Quantity
+// Category
 
-int myNum = 151;
-double myDoubleNum = 39.23D;
-char myLetter = 'E';
-bool myBool = false;
-Console.WriteLine(myNum);
-Console.WriteLine(myDoubleNum);
-Console.WriteLine(myLetter);
-Console.WriteLine(myBool);
+// Create Product
+// View Products
+// Update Product
+// Delete Product
 
-string name = "B";
-if (name == "A")
-{
-    Console.WriteLine("Coffee");
-}
-else if (name == "B")
-{
-    Console.WriteLine("Bread");
-}
-else if (name == "C")
-{
-    Console.WriteLine("Eat");
-}
-else
-{
-    Console.WriteLine("Nothing");
-}
+using MMSDotNetTrainingBatch1.ConsoleApp;
 
-switch (name)
+BeforeSystem:
+Console.WriteLine("Inventory Management System");
+
+Console.WriteLine("1. Create Product ");
+Console.WriteLine("2. View Products ");
+Console.WriteLine("3. Update Product ");
+Console.WriteLine("4. Delete Product ");
+Console.WriteLine("5. Exit ");
+
+Console.Write("Select an option: ");
+
+int option = int .Parse(Console.ReadLine());
+
+InventoryService inventoryService = new InventoryService();
+
+
+switch (option)
 {
-    case "A":
-        Console.WriteLine("Coffee");
+    case 1:
+        Console.WriteLine("Create Product");
+        inventoryService.CreateProduct();
         break;
-    case "B":
-        Console.WriteLine("Bread");
+    case 2:
+        Console.WriteLine("View Products");
+        inventoryService.ViewProducts();
         break;
-    case "C":
-        Console.WriteLine("Eat");
+    case 3:
+        Console.WriteLine("Update Product");
+        inventoryService.UpdateProduct();
         break;
+    case 4:
+        Console.WriteLine("Delete Product");
+        inventoryService.DeleteProduct();
+        break;
+    case 5:
+        Console.WriteLine("Existing...");
+        goto Exit;
     default:
-        Console.WriteLine("Nothing");
-        break;
+        Console.WriteLine("Invalid option. Please try again. ");
+    break;
+
 }
-
-for (int i = 1; i <= 3; i++)
-{
-    Console.WriteLine("Before");
-    Console.WriteLine(i);
-    Console.WriteLine("After");
-}
-
-string[] color = { "red", "blue", "purple", "green" };
-
-for (int i = 0; i < color.Length; i++)
-{
-    Console.WriteLine(color[i]);
-}
-
-foreach (string item in color)
-{
-    Console.WriteLine(item);
-}
-
-Resume resume = new Resume();
-resume.Name = "Mg Mg";
-resume.Age = 18;
-Console.WriteLine(resume.Name);
-Console.WriteLine(resume.Age);
-
-Resume resume2 = new Resume();
-resume2.Name = "Ma Ma";
-resume2.Age = 20;
-var result = resume2.IS18Year();
-Console.WriteLine(result);
-
-public class Resume
-{
-    public string Name;
-    public int Age;
-    public bool IS18Year()
-    {
-        bool result = Age > 18;
-        return result;
-    }
-}
-
-
-class Animal
-{
-    public virtual void animalSound()
-    {
-        Console.WriteLine("The animal makes a sound");
-    }
-}
-class Dog : Animal
-{
-    public override void animalSound()
-    {
-        Console.WriteLine("The dog says woke woke");
-    }
-}
-class Animals
-{
-    static void Main(string[] args)
-    {
-        Animal myAnimal = new Animal();
-        Animal myDog = new Dog();
-
-        myAnimal.animalSound();
-        myDog.animalSound();
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
+goto BeforeSystem;
+Exit:
+Console.ReadKey();
 
